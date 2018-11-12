@@ -1,0 +1,7 @@
+{
+  "template": "verify_email",
+  "subject": "UAM-C",
+  "syntax": "liquid",
+  "urlLifetimeInSeconds": 432000,
+  "enabled": true
+}

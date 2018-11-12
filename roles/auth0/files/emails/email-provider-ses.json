@@ -1,0 +1,10 @@
+{
+  "name": "ses",
+  "enabled": true,
+  "default_from_address": "asdf@asf.com",
+  "credentials":{
+    "accessKeyId":"",
+    "secretAccessKey":"",
+    "region":""
+  }
+}

@@ -1,0 +1,250 @@
+- name: Auth0 Tenant
+  auth0_tenant:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/tenants/tenants.json'
+    content_file: 'roles/auth0/files/tenants/password-reset.html'
+    app_url: "{{ app_url }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Client All Applications
+  auth0_client:
+    mode: 'assert'
+    name: 'All Applications'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/clients/client-all-applications.json'
+    content_file: 'roles/auth0/files/clients/login.html'
+    app_url: "{{ app_url }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+    custom_domain: "{{ custom_domain }}"
+    custom_domain_placeholder: "{{ custom_domain_placeholder }}"
+- name: Auth0 Client Create UAM-C Application
+  auth0_client:
+    mode: 'assert'
+    name: 'UAM-C'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/clients/client-uamc.json'
+    content_file: 'roles/auth0/files/clients/login.html'
+    app_url: "{{ app_url }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Client Create UAM-C Front end
+  auth0_client:
+    mode: 'assert'
+    name: 'Allianz_Portal'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/clients/client-allianz-exp.json'
+    content_file: 'roles/auth0/files/clients/login.html'
+    app_url: "{{ app_url }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Client Create UAM-C Back Office
+  auth0_client:
+    mode: 'assert'
+    name: 'UAM-C Back-Office'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/clients/client-uamc-backoffice.json'
+    content_file: 'roles/auth0/files/clients/login.html'
+    app_url: "{{ back_office_url }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Broker Portal Client
+  auth0_client:
+    mode: 'assert'
+    name: 'BrokerPortal'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/clients/client-broker-portal.json'
+    content_file: 'roles/auth0/files/clients/login.html'
+    app_url: "{{ broker_portal_callback_root }}"
+    app_url_placeholder: "{{ app_url_placeholder }}"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Client_Grant - Broker Portal
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'BrokerPortal'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_broker_portal.json'
+    audience: "urn:allianz.co.uk:broker-portal"
+- name: Auth0 Client_Grant - Allianz_Portal (auth0-authz-api)
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'Allianz_Portal'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_allianz_portal-auth0-authz-api.json'
+    audience: "urn:auth0-authz-api"
+- name: Auth0 Client_Grant - auth0-authz
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'auth0-authz'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_auth0-authz-api.json'
+    audience: "https://{{ domain }}/api/v2/"
+- name: Auth0 Client_Grant - UAM-C
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'UAM-C'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_uamc.json'
+    audience: "https://{{ domain }}/api/v2/"
+- name: Auth0 Client_Grant - UAM-C BackOffice
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'UAM-C Back-Office'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_uamc-backoffice.json'
+    audience: "https://{{ domain }}/api/v2/"
+- name: Auth0 Client_Grant - UAM-C (auth0-authz-api)
+  auth0_client_grant:
+    mode: 'assert'
+    name: 'UAM-C'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/client_grants/grant_uamc-auth0-authz-api.json'
+    audience: "urn:auth0-authz-api"
+- name: Auth0 Email
+  auth0_email:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/emails/email-provider-smtp.json'
+    smtp_host: "{{ smtp_host }}"
+    smtp_port: "{{ smtp_port }}"
+    smtp_user: "{{ smtp_user }}"
+    smtp_pass: "{{ smtp_pass }}"
+    default_from_address: "{{ default_from_address }}"
+- name: Auth0 Email Template - Verification
+  auth0_email_template:
+    mode: 'assert'
+    name: 'verify_email'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/email-templates/verification.json'
+    content_file: 'roles/auth0/files/email-templates/verification.html'
+    result_url: "{{ app_url }}/register"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+- name: Auth0 Email Template - Password Reset
+  auth0_email_template:
+    mode: 'assert'
+    name: 'reset_email'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/email-templates/change-password.json'
+    content_file: 'roles/auth0/files/email-templates/change-password.html'
+    result_url: "{{ app_url }}/login"
+    s3_url: "{{ s3_url }}"
+    s3_url_placeholder: "{{ s3_url_placeholder }}"
+  no_log: "{{ auth0_nolog }}"
+- name: Auth0 Rule - auth0-authorization-extension
+  auth0_rule:
+    mode: 'assert'
+    name: 'auth0-authorization-extension'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/rules/rule_auth0-authorization-extension.json'
+    script_file: 'roles/auth0/files/rules/rule_auth0-authorization-extension.js'
+    tenant_name_placeholder: "{{ tenant_name_placeholder }}"
+    webtask_api_key: "{{ webtask_api_key }}"
+    webtask_api_key_placeholder: "{{ webtask_api_key_placeholder }}"
+- name: Auth0 Rule - authorization-extension-add-to-token
+  auth0_rule:
+    mode: 'assert'
+    name: 'authorization-extension-add-to-token'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/rules/rule_authorization-extension-add-to-token.json'
+    script_file: 'roles/auth0/files/rules/rule_authorization-extension-add-to-token.js'
+    tenant_name_placeholder: "{{ tenant_name_placeholder }}"
+- name: Auth0 Rule - all-uam-identities-added-to-token
+  auth0_rule:
+    mode: 'assert'
+    name: 'all-uam-identities-added-to-token'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/rules/rule_all-uam-identities-added-to-token.json'
+    script_file: 'roles/auth0/files/rules/rule_all-uam-identities-added-to-token.js'
+    tenant_name_placeholder: "{{ tenant_name_placeholder }}"
+- name: Auth0 Rule - broker-portal-access
+  auth0_rule:
+    mode: 'assert'
+    name: 'broker-portal-access'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/rules/rule_broker-portal-access.json'
+    script_file: 'roles/auth0/files/rules/rule_broker-portal-access.js'
+    tenant_name_placeholder: "{{ tenant_name_placeholder }}"
+- name: Auth0 Rule - backoffice-access
+  auth0_rule:
+    mode: 'assert'
+    name: 'backoffice-access'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/rules/rule_backoffice-access.json'
+    script_file: 'roles/auth0/files/rules/rule_backoffice-access.js'
+    tenant_name_placeholder: "{{ tenant_name_placeholder }}"
+- name: Auth0 API - auth0-authorization-extension
+  auth0_resource_server:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/resource_servers/auth0-authorization-extension-api.json'
+- name: Auth0 API - backoffice-api
+  auth0_resource_server:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/resource_servers/backoffice-api-resource-server.json'
+- name: Auth0 API - claimscentre
+  auth0_resource_server:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/resource_servers/claimscentre-resource-server.json'
+- name: Auth0 API - UAM-C
+  auth0_resource_server:
+    mode: 'assert'
+    domain: "{{ domain }}"
+    clientid: "{{ clientid }}"
+    clientsecret: "{{ clientsecret }}"
+    input_file: 'roles/auth0/files/resource_servers/uamc-resource-server.json'

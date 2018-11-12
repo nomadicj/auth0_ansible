@@ -1,0 +1,6 @@
+auth0_nolog: true
+app_url_placeholder: "__APP_URL__"
+s3_url_placeholder: "__S3_URL__"
+tenant_name_placeholder: "__AUTH0_TENANT__"
+webtask_api_key_placeholder: "__WEBTASK_API_KEY__"
+custom_domain_placeholder: "__YOUR_CUSTOM_DOMAIN__"

@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "name": "authorization-extension-add-to-token",
+  "order": 2
+}

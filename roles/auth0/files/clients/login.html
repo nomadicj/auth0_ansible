@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.3/picturefill.min.js"></script>
+    <style type="text/css">
+        .auth0-lock.auth0-lock .auth0-lock-header {
+            display: none;
+        }
+
+        p {
+            text-align: center !important;
+        }
+
+        body .auth0-lock.auth0-lock button.auth0-lock-submit {
+            background-color: #3da556 !important;
+            color: #fff;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            line-height: 1.4;
+            margin: 0 0 20px;
+            padding: 12px 28px;
+            text-transform: uppercase;
+            transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        /*Login specific Auth0 override style*/
+
+        .auth0-lock.auth0-lock .auth0-lock-overlay,
+        .auth0-lock-tabs-container,
+        .auth-lock-social-buttons-pane,
+        .auth0-lock-pane-separator {
+            display: none;
+        }
+
+        .auth0-lock-container .auth0-lock.auth0-lock {
+            position: relative;
+        }
+
+        .auth0-lock-form div p:first-child {
+            display: none;
+        }
+
+        @media screen and (min-width: 481px) {
+            .auth0-lock-container .auth0-lock.auth0-lock,
+            .auth0-lock-container .auth0-lock.auth0-lock .auth0-lock-center {
+                display: block;
+            }
+            .auth0-lock-container .auth0-lock.auth0-lock.auth0-lock-opened .auth0-lock-widget {
+                -webkit-transition:  !important;
+                transition: none !important;
+                box-shadow: none;
+            }
+        }
+
+        @media screen and (max-width:480px) {
+            .c-page.u-padding-bottom-lg,
+            .c-footer.t-bg-white {
+                display: block !important
+            }
+            .auth0-lock-container .auth0-lock.auth0-lock.auth0-lock-opened.auth0-lock-with-tabs .auth0-lock-body-content {
+                min-height: auto;
+                display: block;
+                padding-top: 0;
+            }
+            .auth0-lock-container .auth0-lock.auth0-lock.auth0-lock-opened .auth0-lock-content {
+                display: block;
+            }
+            .auth0-lock-container .auth0-lock.auth0-lock.auth0-lock-opened .auth0-lock-widget,
+            .auth0-lock-container .auth0-lock.auth0-lock.auth0-lock-opened {
+                position: relative;
+            }
+        }
+    </style>
+    <link href="__S3_URL__/patternlab.css" type="text/css" rel="stylesheet" />
+    <link href="__S3_URL__/auth0.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+    <!--[if IE 8]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/ie8/0.2.5/ie8.js"></script>
+  <![endif]-->
+
+    <!--[if lte IE 9]>
+  <script src="https://cdn.auth0.com/js/base64.js"></script>
+  <script src="https://cdn.auth0.com/js/es5-shim.min.js"></script>
+  <![endif]-->
+
+    <div class="c-page u-padding-bottom-lg">
+        <div class="c-header-spacer">
+            <header class="c-header">
+                <div class="" data-toggle-on="">
+                    <div class="c-navigation">
+                        <div>
+                            <div class="c-navigation__bar c-header__wrapper js-header__wrapper">
+                                <a href="#" class="c-header__logo js-header__logo ">
+                                    <img alt="Allianz Logo" src="__S3_URL__/u47.jpg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </div>
+
+        <div class="c-stage c-stage--title l-grid l-grid--max-width ">
+            <figure class="c-image c-stage__image c-stage__image--cover ">
+                    <picture>
+                            <source srcset="__S3_URL__/register-login-tab-bnr.jpg" media="(min-width: 768px) and (max-width: 1199px)"> 
+                            <source srcset="__S3_URL__/register-login-desk-bnr.jpg" media="(min-width: 1200px)">
+                            <img srcset="__S3_URL__/register-login-mob-bnr.jpg" alt="allianz">
+                        </picture>    
+            </figure>
+
+            <div class="c-stage__content u-padding-bottom-lg">
+                <div class="l-grid">
+                    <div class="l-grid__row">
+                        <div class="l-grid__column-medium-10 offset-medium-1">
+                            <div style="height:50px;"></div>
+                            <h2 class="c-heading c-stage__headline u-text-weight-light bnr-first-line">
+                                Welcome to
+                            </h2>
+                            <h1 class="bnr-second-line">Allianz Insurance</h1>
+                            <div style="height:50px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.auth0.com/js/lock/11.3/lock.min.js"></script>
+    <script>
+        // Decode utf8 characters properly
+        var config = JSON.parse(decodeURIComponent(escape(window.atob('@@config@@'))));
+        config.extraParams = config.extraParams || {};
+        var connection = config.connection;
+        var prompt = config.prompt;
+        var languageDictionary;
+        var language;
+
+        if (config.dict && config.dict.signin && config.dict.signin.title) {
+            languageDictionary = {
+                title: config.dict.signin.title,
+                forgotPasswordAction: "Forgot password?"
+            };
+        } else if (typeof config.dict === 'string') {
+            language = config.dict;
+        }
+        var loginHint = config.extraParams.login_hint;
+
+        // Available Lock configuration options: https://auth0.com/docs/libraries/lock/v11/configuration
+        var lock = new Auth0Lock(config.clientID, config.auth0Domain, {
+            auth: {
+                redirectUrl: config.callbackURL,
+                responseType: (config.internalOptions || {}).response_type ||
+                    (config.callbackOnLocationHash ? 'token' : 'code'),
+                params: config.internalOptions
+            },
+            configurationBaseUrl: config.clientConfigurationBaseUrl,
+            overrides: {
+              __tenant: config.auth0Tenant,
+              __token_issuer: '__YOUR_CUSTOM_DOMAIN__'
+            },
+            assetsUrl: config.assetsUrl,
+            allowedConnections: connection ? [connection] : null,
+            rememberLastLogin: !prompt,
+            language: language,
+            languageDictionary: languageDictionary,
+            theme: {
+                //logo:            'YOUR LOGO HERE',
+                //primaryColor:    'green'
+            },
+            prefill: loginHint ? {
+                email: loginHint,
+                username: loginHint
+            } : null,
+            closable: false,
+            defaultADUsernameFromEmailPrefix: false,
+            // uncomment if you want small buttons for social providers
+            // socialButtonStyle: 'small'
+        });
+
+        lock.show();
+    </script>
+
+<footer class="c-footer t-bg-white">
+        <div class="l-grid l-grid--max-width ">
+            <div class="c-footer__container--curtain-panel">
+                <hr class="c-divider c-divider--compact c-footer__divider" />
+                <div id="footer_inner" class="l-grid__row">
+                    <div id="footer_sec1" class="l-grid__column-large-9 l-grid__column-medium-9 footer_section">
+                        <div class="footer_logo">
+                            <img alt="Allianz Logo" src="__S3_URL__/u47.jpg">
+                        </div>
+                        <nav class="c-footer__legal footer-links" role="navigation" aria-label="Service Links">
+                            <a class="c-footer__legal-link" href="https://www.allianzebroker.co.uk/privacy-legal-cookie-policy.html">
+                                Fair processing
+                            </a>
+                            <a class="c-footer__legal-link" href="https://www.allianzebroker.co.uk/privacy-legal-cookie-policy.html">
+                                Legal notice
+                            </a>
+                            <a class="c-footer__legal-link" href="https://www.allianzebroker.co.uk/privacy-legal-cookie-policy.html#cookiepolicy">
+                                About cookies
+                            </a>
+                            <a class="c-footer__legal-link" href="https://www.allianzebroker.co.uk/accessibility.html">
+                                Accesibility
+                            </a>
+                            <a class="c-footer__legal-link" href="https://www.allianz.co.uk/security.html">
+                                Security
+                            </a>
+                        </nav>
+                        <div class="footer_copyright">
+                            <p>© Allianz Insurance plc <script>new Date().getFullYear()&&document.write(new Date().getFullYear());</script>. All Rights Reserved.</p>
+                            <p>
+                                Allianz Insurance plc is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority
+                                and the Prudential Regulation Authority. Financial Services Register number 121849
+                            </p>
+                        </div>
+                    </div>
+                    <div id="footer_sec2" class="l-grid__column-large-3 l-grid__column-medium-3 footer_section">
+                        <span>
+                            <img alt="GB Paralympic logo" src="__S3_URL__/GB_Paralympic_logo.png">
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

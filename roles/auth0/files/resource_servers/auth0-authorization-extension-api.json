@@ -1,0 +1,74 @@
+{
+  "name": "auth0-authorization-extension-api",
+  "identifier": "urn:auth0-authz-api",
+  "allow_offline_access": false,
+  "skip_consent_for_verifiable_first_party_clients": false,
+  "token_lifetime": 86400,
+  "token_lifetime_for_web": 7200,
+  "signing_alg": "RS256",
+  "scopes": [
+    {
+      "value": "read:users"
+    },
+    {
+      "value": "read:applications"
+    },
+    {
+      "value": "read:connections"
+    },
+    {
+      "value": "read:configuration"
+    },
+    {
+      "value": "update:configuration"
+    },
+    {
+      "value": "read:groups"
+    },
+    {
+      "value": "create:groups"
+    },
+    {
+      "value": "update:groups"
+    },
+    {
+      "value": "delete:groups"
+    },
+    {
+      "value": "read:roles"
+    },
+    {
+      "value": "create:roles"
+    },
+    {
+      "value": "update:roles"
+    },
+    {
+      "value": "delete:roles"
+    },
+    {
+      "value": "read:permissions"
+    },
+    {
+      "value": "create:permissions"
+    },
+    {
+      "value": "update:permissions"
+    },
+    {
+      "value": "delete:permissions"
+    },
+    {
+      "value": "read:resource-server"
+    },
+    {
+      "value": "create:resource-server"
+    },
+    {
+      "value": "update:resource-server"
+    },
+    {
+      "value": "delete:resource-server"
+    }
+  ]
+}

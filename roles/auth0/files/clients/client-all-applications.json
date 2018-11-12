@@ -1,0 +1,11 @@
+{
+  "name": "All Applications",
+  "grant_types": [
+    "implicit",
+    "authorization_code",
+    "client_credentials",
+    "refresh_token"
+  ],
+  "custom_login_page": "@@login.html@@",
+  "custom_login_page_on": true
+}

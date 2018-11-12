@@ -1,0 +1,11 @@
+{
+  "audience": "https://jna-dev.eu.auth0.com/api/v2/",
+  "scope": [
+    "read:users",
+    "read:groups",
+    "read:roles",
+    "read:permissions",
+    "read:resource-server",
+    "update:roles"
+  ]
+}

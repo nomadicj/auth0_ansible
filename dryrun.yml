@@ -1,0 +1,76 @@
+- name: Auth_Client Test
+  hosts: localhost
+  #connection: local
+  tasks:
+  - name: Auth0 Client Get
+    auth0_client:
+      mode: 'get'
+      name: 'UAM-C'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/client.json'
+  - name: Auth0 Client GetAllClients
+    auth0_client:
+      mode: 'get_all'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+  - name: Auth0 Client_Grants GetAll
+    auth0_client_grant:
+      mode: 'get_all'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/client_grants.json'
+  - name: Auth0 Tenant Get
+    auth0_tenant:
+      mode: 'get'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/tenant.json'
+  - name: Auth0 Email Get
+    auth0_email:
+      mode: 'get'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/email.json'
+  - name: Auth0 Verify Email Template Get
+    auth0_email_template:
+      mode: 'get'
+      name: 'verify_email'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/email_template_verify_email.json'
+  - name: Auth0 Pwd Reset Email Template Get
+    auth0_email_template:
+      mode: 'get'
+      name: 'reset_email'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/email_template_reset_email.json'
+  - name: Auth0 Connection Get
+    auth0_connection:
+      mode: 'get_all'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/connection.json'
+  - name: Auth0 Resource Server Get
+    auth0_resource_server:
+      mode: 'get_all'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/resource_server.json'
+  - name: Auth0 Rules Get
+    auth0_rule:
+      mode: 'get_all'
+      domain: "{{ domain }}"
+      clientid: "{{ clientid }}"
+      clientsecret: "{{ clientsecret }}"
+      output_file: 'output/rules.json'

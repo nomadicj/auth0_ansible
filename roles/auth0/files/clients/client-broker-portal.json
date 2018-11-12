@@ -1,0 +1,34 @@
+{
+  "name": "BrokerPortal",
+  "description": "Broker Portal",
+  "logo_uri": "https://www.guidewire.com/sites/all/themes/guidewire/assets/images/logos/guidewire_logo.svg",
+  "callbacks": [
+    "__APP_URL__/ClaimApplication/dist/html/common/login-redirect.html",
+    "https://localhost:1238/ClaimApplication/app/html/common/login-redirect.html",
+    "https://10.128.196.76/ClaimApplication/dist/html/common/login-redirect.html"
+  ],
+  "allowed_origins": [
+    "__APP_URL__"
+  ],
+  "web_origins": [
+    "__APP_URL__"
+  ],
+  "allowed_clients": [],
+  "allowed_logout_urls": [
+    "__APP_URL__/logout"
+  ],
+  "grant_types": [
+    "implicit"
+  ],
+  "token_endpoint_auth_method": "client_secret_post",
+  "app_type": "non_interactive",
+  "oidc_conformant": true,
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 600
+  },
+  "sso": false,
+  "cross_origin_auth": false,
+  "custom_login_page": "@@login.html@@",
+  "custom_login_page_on": true
+}

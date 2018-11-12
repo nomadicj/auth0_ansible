@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "name": "auth0-authorization-extension",
+  "order": 1
+}

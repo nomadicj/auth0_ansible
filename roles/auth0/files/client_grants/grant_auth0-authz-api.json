@@ -1,0 +1,16 @@
+{
+  "audience": "https://jna-dev.eu.auth0.com/api/v2/",
+  "scope": [
+    "read:connections",
+    "read:resource_servers",
+    "update:resource_servers",
+    "delete:resource_servers",
+    "read:clients",
+    "delete:clients",
+    "read:users",
+    "read:rules",
+    "create:rules",
+    "update:rules",
+    "delete:rules"
+  ]
+}

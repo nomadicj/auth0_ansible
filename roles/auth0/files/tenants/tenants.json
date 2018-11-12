@@ -1,0 +1,15 @@
+{
+  "default_directory": "Username-Password-Authentication",
+  "error_page": {
+    "html": "",
+    "show_log_link": false,
+    "url": "__APP_URL__/error"
+  },
+  "change_password": {
+    "enabled": true,
+    "html": "@@password-reset.html@@"
+  },
+  "flags": {
+    "enable_client_connections": false
+  }
+}

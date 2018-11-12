@@ -1,0 +1,10 @@
+{
+  "audience": "https://jna-dev.eu.auth0.com/api/v2/",
+  "scope": [
+    "read:users",
+    "update:users",
+    "delete:users",
+    "create:users",
+    "create:user_tickets"
+  ]
+}

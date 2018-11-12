@@ -1,0 +1,9 @@
+{
+  "audience": "urn:auth0-authz-api",
+  "scope": [
+    "read:users",
+    "read:roles",
+    "read:permissions",
+    "read:resource-server"
+  ]
+}

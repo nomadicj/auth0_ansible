@@ -1,0 +1,32 @@
+{
+  "name": "Allianz_Portal",
+  "description": "UAM-C Allianz Experience front end",
+  "logo_uri": "https://www.allianz.co.uk/content/dam/allianzcouk/images/Gen2-images/AZ_Logo_RGB-2.png",
+  "callbacks": [
+    "__APP_URL__/callback"
+  ],
+  "allowed_origins": [
+    "__APP_URL__"
+  ],
+  "web_origins": [
+    "__APP_URL__"
+  ],
+  "allowed_clients": [],
+  "allowed_logout_urls": [
+    "__APP_URL__/logout"
+  ],
+  "grant_types": [
+    "implicit"
+  ],
+  "token_endpoint_auth_method": "client_secret_post",
+  "app_type": "spa",
+  "oidc_conformant": true,
+  "jwt_configuration": {
+    "alg": "RS256",
+    "lifetime_in_seconds": 600
+  },
+  "sso": false,
+  "cross_origin_auth": false,
+  "custom_login_page": "@@login.html@@",
+  "custom_login_page_on": true
+}
